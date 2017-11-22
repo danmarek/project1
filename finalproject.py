@@ -3,6 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from database_setup import Base, Restaurant, MenuItem
 
+# A test project
 # specifiy db engine
 engine = create_engine('sqlite:///restaurantmenu.db')
 # bind base class to db translate class to table
@@ -22,7 +23,6 @@ app = Flask(__name__)
 def showRestaurants():
     restaurants = session.query(Restaurant).all()
     return render_template('restaurants.html', restaurants = restaurants)
-    #return "list all resturants"
 
 @app.route('/restaurant/JSON/')
 def showRestaurantsJSON():
